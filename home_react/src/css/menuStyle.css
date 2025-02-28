@@ -1,0 +1,26 @@
+ul, li{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.Logo{
+    text-align: center;
+    font-size: 4em;
+    line-height: 100px;
+}
+.Menu{
+    height: 50px;
+    background: navy;
+}
+.Menu>ul{
+    overflow: auto;
+}
+.Menu li{
+    float: left;
+    line-height: 50px;
+    width: 20%;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: navy;
+    color: aliceblue;
+}

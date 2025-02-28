@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+.Left-form{
+    width: 400px;
+    margin: 0 auto;
+}
+input{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.Text-red{
+    color: red;
+    font-size: 0.8em;
+}
