@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
-import i03 from '../img/03.jpeg';
 import tiger1 from '../img/tiger1.jpg';
 import tiger2 from '../img/tiger2.jpg';
 import tiger3 from '../img/tiger3.jpg';
 import tiger4 from '../img/tiger4.webp';
 import tiger5 from '../img/tiger5.jpg';
+import '../css/HomeStyle.css';
 
 function Home(){
     //데이터를 담을 변수

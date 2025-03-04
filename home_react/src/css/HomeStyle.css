@@ -1,0 +1,5 @@
+img:hover{
+    scale: 2.5;
+    transition: all 1s;
+    border-radius: 50%;
+}

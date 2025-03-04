@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import './../css/LoginStyle.css';
 
+import axios from 'axios';
+
 function Login(){
     //폼의 아이디와 비밀번호를 보관할 변수
     //                  함수
@@ -44,6 +46,24 @@ function Login(){
             return false;
         } 
         //비동기식으로 백엔드
+        axios.post("http://localhost:9988/joins/loginOk",{
+            userid : loginForm.userid,
+            userpwd : loginForm.userpwd
+        }).then(function(response){
+            console.log(response.data);
+            //response.data에 정보가 있으면 로그인 성공
+            if(response.data){
+                //sessionStroage에 로그인시 사용할 정보 기록하고 홈으로 이동
+                sessionStorage.setItem("logId", response.data.id);
+                sessionStorage.setItem("logUserid", response.data.userid);
+                sessionStorage.setItem("logUsername", response.data.username);
+                sessionStorage.setItem("logStatus", "Y");
+
+                window.location.href = "/"; //홈으로 이동
+            }
+        }).catch(function(error){
+            console.log(error);
+        })
     }
 
     return (
@@ -53,14 +73,14 @@ function Login(){
                 <label>아이디</label><br/>
                 <input type="text" name="userid" value={loginForm.userid} placeholder="아이디를 입력하세요"
                     onChange={setFormData}
-                /><br/>
+                /><p/>
                 <div className="Text-red">{idErrorMessage}</div>
                 <label>비밀번호</label><br/>
                 <input type="password" name="userpwd" value={loginForm.userpwd} placeholder="비밀번호를 입력하세요"
                     onChange={setFormData}
-                /><br/>
+                /><p/>
                 <div className="Text-red">{pwdErrorMessage}</div>
-                <input type="submit" value="Login"/>    
+                <input type="submit" value="Login"/><p/>    
             </form>
         </div>
     );
