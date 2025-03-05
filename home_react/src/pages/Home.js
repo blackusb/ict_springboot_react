@@ -30,6 +30,7 @@ function Home(){
             <img src={tiger3} style={{width:'200px', height:'160px'}}/>
             <img src={tiger4} style={{width:'200px', height:'160px'}}/>
             <img src={tiger5} style={{width:'200px', height:'160px'}}/>
+            <div className='nemo'></div>
             <div>
                 <button onClick={reactSpringCall}>Click : 스프링부트에서 정보 받아오기</button>
             </div>

@@ -6,6 +6,9 @@ import Login from './pages/Login';
 import JoinsForm from './pages/JoinsForm';
 import JoinsEdit from './pages/JoinsEdit';
 
+import BoardList from './pages/BoardList';
+import BoardWrite from './pages/BoardWrite';
+
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +18,9 @@ function App() {
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/joinsForm" element={<JoinsForm/>}></Route>
           <Route path="/joinsEdit" element={<JoinsEdit/>}></Route>
+
+          <Route path="/boardList" element={<BoardList/>}></Route>
+          <Route path="/boardWrite" element={<BoardWrite/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

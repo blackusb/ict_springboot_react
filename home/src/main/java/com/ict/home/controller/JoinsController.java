@@ -51,4 +51,25 @@ public class JoinsController {
         return service.joinsSelect(entityVO);
     }
 
+    //회원정보 수정(DB Update)
+    @PostMapping("/editOk")
+    public String joinsEditOk(@RequestBody JoinsEntity entityVO){
+        System.out.println(entityVO);
+        
+        //비밀번호가 맞는지 확인.
+        //DB의 회원정보 선택
+        JoinsEntity checkEntity = service.joinsSelect(entityVO);
+        if(entityVO.getUserpwd().equals(checkEntity.getUserpwd())){
+            //비밀번호 일치 : 수정 진행
+            JoinsEntity result = service.createJoins(entityVO); //update문이 있어서 가져다 씀.
+            if(result==null){ //업데이트 실패시
+                return "updateFail";
+            }else{ //업데이트 성공시
+                return "updateOk";
+            }
+        }else{
+            //비밀번호 불일치 : 수정 중단
+            return "pwdFail";
+        }
+    }
 }

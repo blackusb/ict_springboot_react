@@ -3,3 +3,14 @@ img:hover{
     transition: all 1s;
     border-radius: 50%;
 }
+.nemo{
+    width: 200px;
+    height: 200px;
+    float: left;
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, purple);
+}
+.nemo:hover{
+    scale: 0.5;
+    transition: all 1s;
+    border-radius: 50%;
+}

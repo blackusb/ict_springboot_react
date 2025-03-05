@@ -21,12 +21,16 @@ public class JoinsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto increment 설정하는 어노테이션
     @Column(name="JOINS_ID")
     private int id; //일련번호
+
     @Column(nullable = false, length = 15, unique = true)
     private String userid;
+
     @Column(nullable = false, length = 15)
     private String userpwd;
+
     @Column(nullable = false, length = 18)
     private String username;
+
     @Column(length = 15)
     private String tel;
     private String email;

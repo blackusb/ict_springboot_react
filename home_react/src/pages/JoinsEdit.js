@@ -27,34 +27,37 @@ function JoinsEdit(){
     }
     //submit버튼을 클릭시 호출
     function formCheck(event){
+        console.log(joinsForm);
+
         //기본이벤트 제거
         event.preventDefault();
 
         //필수입력항목 유효성 검사
-        if(joinsForm.userid==""){
+        if(joinsForm.userid===""){
             alert("아이디를 입력하세요");
             return false;
         }
-        if(joinsForm.userpwd==""){
+        if(joinsForm.userpwd===null || joinsForm.userpwd===""){
             alert("비밀번호를 입력하세요");
             return false;
         }
-        if(joinsForm.username==""){
+        if(joinsForm.username===""){
             alert("이름을 입력하세요");
             return false;
         }
-        if(joinsForm.tel==""){
+        if(joinsForm.tel===""){
             alert("연락처를 입력하세요");
             return false;
         }
-        if(joinsForm.email==""){
+        if(joinsForm.email===""){
             alert("이메일을 입력하세요");
             return false;
         }
 
         //비동기식으로 springboot 회원정보 수정 요청(axios)
-        axios.post("http://localhost:9988/joins/formOk",
+        axios.post("http://localhost:9988/joins/editOk",
             {
+                id : sessionStorage.getItem("logId"),   //있으면 update, 없으면 insert
                 userid : joinsForm.userid,
                 userpwd : joinsForm.userpwd,
                 username : joinsForm.username,
@@ -63,10 +66,14 @@ function JoinsEdit(){
             }
         ).then(function(response){
             console.log(response.data);
-            if(response.data=='ok'){ //회원등록
-                window.location.href = '/login'; //리액트에서는 window부터 적어주기
+            if(response.data==='pwdFail'){ 
+                alert("비밀번호를 잘못 입력하였습니다.");
+            }else if(response.data==="updateFail"){
+                alert("회원정보 수정 실패");
+            }else if(response.data==="updateOk"){
+                alert("회원정보 수정 성공");
             }else{
-                alert("회원등록 실패!");
+                alert("잘못 처리됨");
             }
         }).catch(function(error){
             console.log(error);
