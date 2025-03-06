@@ -8,6 +8,7 @@ import JoinsEdit from './pages/JoinsEdit';
 
 import BoardList from './pages/BoardList';
 import BoardWrite from './pages/BoardWrite';
+import BoardView from './pages/BoardView';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
 
           <Route path="/boardList" element={<BoardList/>}></Route>
           <Route path="/boardWrite" element={<BoardWrite/>}></Route>
+          {/*          /boardView/23 */}
+          <Route path="/boardView/:id" element={<BoardView/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

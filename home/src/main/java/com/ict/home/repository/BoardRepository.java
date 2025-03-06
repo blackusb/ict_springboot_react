@@ -8,7 +8,10 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
-
-
     List<BoardEntity> findAllByOrderByIdDesc(PageRequest pageRequest);
+    List<BoardEntity> findAllBySubjectContainingOrderByIdDesc(String searchWord, PageRequest of);
+
+    int countIdBy();
+    int countById(int id);
+    int countIdBySubjectContaining(String searchWord);
 }
